@@ -36,9 +36,8 @@ def calculator():
     num1 = float(input("What's the first number?: "))
     for symbol in operations:
         print(symbol)
-    should_continue = True
 
-    while should_continue:
+    while True:
         operation_symbol = input("Pick an operation: ")
         num2 = float(input("What's the next number?: "))
         # Return the identifier for appropriate function
@@ -51,8 +50,10 @@ def calculator():
 
         if chosen == 'y':
             num1 = answer
+            continue
         elif chosen == 'n':
-            should_continue = False
             clear_console()
-            calculator()
+            # To indicate that it should be started again
+            return True
 
+        return False
